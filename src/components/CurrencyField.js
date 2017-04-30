@@ -8,7 +8,7 @@ import NumberFormat from 'react-number-format';
 
 const CurrencyField = ({ isEditable, value, onChange }) => (
   <NumberFormat value={value} displayType={isEditable ? 'input' : 'text'} prefix="$" thousandSeparator={true}
-    onChange={onChange} decimalPrecision={2} />
+    onChange={(e, newValue) => onChange(newValue)} decimalPrecision={2} />
 );
 CurrencyField.propTypes = {
   isEditable: PropTypes.bool.isRequired,

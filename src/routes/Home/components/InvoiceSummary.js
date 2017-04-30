@@ -2,7 +2,9 @@ import React from 'react';
 
 export const InvoiceSummary = () => (
   <div>
-    Invoice summary here.
+    Subtotal:
+    Taxes:
+    Total:
   </div>
 );
 

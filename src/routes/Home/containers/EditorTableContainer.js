@@ -9,7 +9,7 @@ import EditorTable from '../components/EditorTable';
 
 const mapDispatchToProps = {
   createItem: actions.createItem,
-  removeItem: actions.removeItem,
+  deleteItem: actions.deleteItem,
   updateItemName: actions.updateItemName,
   updateQuantity: actions.updateQuantity,
   updatePrice: actions.updatePrice

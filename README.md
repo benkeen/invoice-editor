@@ -13,3 +13,5 @@ showing misc dynamically updated content like the cost of each item and subtotal
 
 - I use the [react-number-format](https://github.com/s-yadav/react-number-format) react component for the currency 
 fields. The UX feels a bit iffy to me when specifying formatting with cents, but I left it in anyway.
+- I included [styled-components](https://github.com/styled-components/styled-components) for individual component
+styling.

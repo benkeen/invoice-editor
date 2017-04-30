@@ -68,10 +68,29 @@ export const actions = {
 
 // ------- Reducer -------
 
+const updateProp = (list, id, propName, newValue) => {
+
+  if (propName === 'price') {
+
+  }
+  return list.map((item) => {
+    if (item.id === id) {
+      item[propName] = newValue;
+    }
+    return item;
+  });
+};
+
+
 // convenient shorthand for doing away with a `switch` in our reducer. This tracks all the action types we're interested
-// in, and returns a new array for the store
+// in, and returns a new array for the store. Truth is, this chunk is a bit too "clever". I wrote it like this to show
+// off my es6 skillz - in a real app, I generally lean towards less terse but more readable code.
 const ACTION_HANDLERS = {
-  [CREATE_ITEM]: (state, newItem) => [...state, newItem]
+  [CREATE_ITEM]: (state, newItem) => [...state, newItem],
+  [DELETE_ITEM]: (state, id) => state.filter((item) => item.id !== id), // state.filter returns a NEW array, omitting the target item
+  [UPDATE_ITEM_NAME]: (state, { id, itemName }) => updateProp(state, id, 'name', itemName),
+  [UPDATE_ITEM_QUANTITY]: (state, { id, quantity }) => updateProp(state, id, 'quantity', parseInt(quantity, 10)),
+  [UPDATE_ITEM_PRICE]: (state, { id, price }) => updateProp(state, id, 'price', parseFloat(price))
 };
 
 export default function itemReducer (state = [], action) {

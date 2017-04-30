@@ -27,7 +27,7 @@ const EditorTable = ({ items, createItem, deleteItem, updateItemName, updateQuan
       />
     ))}
 
-    <Button label="New Item" onClick={() => createItem()} />
+    <Button label="New Item &raquo;" onClick={() => createItem()} />
   </div>
 );
 
