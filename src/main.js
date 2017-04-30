@@ -11,7 +11,6 @@ const MOUNT_NODE = document.getElementById('root');
 
 let render = () => {
   const routes = require('./routes/index').default(store);
-
   ReactDOM.render(
     <AppContainer store={store} routes={routes} />,
     MOUNT_NODE
@@ -25,7 +24,6 @@ if (__DEV__) {
     const renderApp = render
     const renderError = (error) => {
       const RedBox = require('redbox-react').default;
-
       ReactDOM.render(<RedBox error={error} />, MOUNT_NODE);
     };
 
@@ -37,7 +35,7 @@ if (__DEV__) {
         console.error(error);
         renderError(error);
       }
-    }
+    };
 
     // Setup hot module replacement
     module.hot.accept('./routes/index', () =>
@@ -45,7 +43,7 @@ if (__DEV__) {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE);
         render();
       })
-    )
+    );
   }
 }
 

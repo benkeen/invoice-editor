@@ -10,7 +10,7 @@ class AppContainer extends Component {
   };
 
   shouldComponentUpdate () {
-    return false
+    return false;
   }
 
   render () {
