@@ -3,14 +3,14 @@
  * render the
  */
 import React from 'react';
-import EditorTable from './containers/EditorTableContainer';
+import InvoiceTable from './containers/InvoiceTableContainer';
 import InvoiceSummary from './containers/InvoiceSummaryContainer';
 
 
 const Home = (props) => (
   <div className="container-fluid">
 
-    <EditorTable
+    <InvoiceTable
       items={props.items}
       createItem={props.createItem}
       deleteItem={props.deleteItem}

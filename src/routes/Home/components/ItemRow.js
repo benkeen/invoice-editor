@@ -3,32 +3,31 @@ import styled from 'styled-components';
 
 import DeleteIcon from '../../../components/DeleteIcon';
 import CurrencyField from '../../../components/CurrencyField';
+import StyledRow from './StyledRow';
 import QuantityDropdown from './QuantityDropdown';
 
-// this is a styled component [see https://github.com/styled-components/styled-components] for more info
 const ItemNameField = styled.input`
   width: 100%;
 `;
 
-
 const ItemRow = (props) => (
-  <div className="row">
-    <div className="col-md-4">
+  <StyledRow className="row">
+    <div className="col-md-6">
       <ItemNameField type="input" value={props.itemName} onChange={(e) => props.updateItemName(e.target.value)} />
     </div>
     <div className="col-md-1">
       <QuantityDropdown value={props.quantity} onChange={props.updateQuantity} />
     </div>
-    <div className="col-md-3">
+    <div className="col-md-2 price-field">
       <CurrencyField value={props.price} isEditable={true} onChange={props.updatePrice} />
     </div>
-    <div className="col-md-3">
+    <div className="col-md-2 total-field">
       <CurrencyField value={props.total} isEditable={false} />
     </div>
-    <div className="col-md-1">
+    <div className="col-md-1 delete-item">
       <DeleteIcon onClick={props.deleteItem} />
     </div>
-  </div>
+  </StyledRow>
 );
 
 export default ItemRow;

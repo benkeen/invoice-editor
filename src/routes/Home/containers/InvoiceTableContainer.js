@@ -1,10 +1,10 @@
 /**
  * The container component for the Editor Table. This connects the necessary dispatch methods plus the
- * necessary store data to the EditorTable component.
+ * necessary store data to the InvoiceTable component.
  */
 import { connect } from 'react-redux';
 import { actions } from '../modules/items';
-import EditorTable from '../components/EditorTable';
+import InvoiceTable from '../components/InvoiceTable';
 
 
 const mapDispatchToProps = {
@@ -28,4 +28,4 @@ const mapStateToProps = (state) => ({
   items: addItemTotal(state.items)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditorTable);
+export default connect(mapStateToProps, mapDispatchToProps)(InvoiceTable);
