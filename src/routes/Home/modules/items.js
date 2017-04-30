@@ -68,11 +68,8 @@ export const actions = {
 
 // ------- Reducer -------
 
+// convenience method to update a single prop in an array of objects and return a fresh array
 const updateProp = (list, id, propName, newValue) => {
-
-  if (propName === 'price') {
-
-  }
   return list.map((item) => {
     if (item.id === id) {
       item[propName] = newValue;
@@ -84,7 +81,7 @@ const updateProp = (list, id, propName, newValue) => {
 
 // convenient shorthand for doing away with a `switch` in our reducer. This tracks all the action types we're interested
 // in, and returns a new array for the store. Truth is, this chunk is a bit too "clever". I wrote it like this to show
-// off my es6 skillz - in a real app, I generally lean towards less terse but more readable code.
+// off my es6 skillz - in a real app, I'd lean towards less terse but more readable code.
 const ACTION_HANDLERS = {
   [CREATE_ITEM]: (state, newItem) => [...state, newItem],
   [DELETE_ITEM]: (state, id) => state.filter((item) => item.id !== id), // state.filter returns a NEW array, omitting the target item

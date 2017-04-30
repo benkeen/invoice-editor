@@ -3,9 +3,14 @@
  * render the
  */
 import React from 'react';
+import styled from 'styled-components';
 import InvoiceTable from './containers/InvoiceTableContainer';
 import InvoiceSummary from './containers/InvoiceSummaryContainer';
 
+const SummaryWrapper = styled.div`
+  float: right; 
+  width: 180px;
+`;
 
 const Home = (props) => (
   <div className="container-fluid">
@@ -18,7 +23,10 @@ const Home = (props) => (
       updateQuantity={props.updateQuantity}
       updatePrice={props.updatePrice} />
 
-    <InvoiceSummary />
+    <SummaryWrapper>
+      <InvoiceSummary />
+    </SummaryWrapper>
+
   </div>
 );
 

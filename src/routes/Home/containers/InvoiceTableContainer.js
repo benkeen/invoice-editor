@@ -18,7 +18,7 @@ const mapDispatchToProps = {
 
 // modifies the data in the store (the one source of truth!) to include a `total` property. The rendering layer handles
 // formatting of the value
-const addItemTotal = (items) => {
+export const addItemTotal = (items) => {
   return items.map((item) => {
     return { ...item, total: item.quantity * item.price }
   });
