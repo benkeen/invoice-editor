@@ -1,3 +1,12 @@
 import React from 'react';
 
-// generic delete icon - onClick handler
+
+/**
+ * Generic delete icon.
+ */
+const DeleteIcon = ({ onClick }) => (
+  <span className="glyphicon glyphicon-remove" onClick={onClick} />
+);
+
+export default DeleteIcon;
+
