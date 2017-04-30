@@ -3,7 +3,7 @@ import Button from '../../../components/button';
 import ItemRow from './ItemRow';
 
 
-const EditorTable = ({ items, addItem, deleteItem }) => (
+const EditorTable = ({ items, createItem, deleteItem, updateItemName, updateQuantity, updatePrice }) => (
   <div className="table">
     <div className="row">
       <div className="col-md-4">Item Name</div>
@@ -13,12 +13,21 @@ const EditorTable = ({ items, addItem, deleteItem }) => (
       <div className="col-md-1"></div>
     </div>
 
-    {items.map((item) => <ItemRow key={item.id} item={item} deleteItem={() => deleteItem(item.id)} />)}
+    {items.map((item) => (
+      <ItemRow
+        key={item.id}
+        itemName={item.name}
+        quantity={item.quantity}
+        price={item.price}
+        total={item.total}
+        deleteItem={() => deleteItem(item.id)}
+        updateItemName={(itemName) => updateItemName(item.id, itemName)}
+        updateQuantity={(quantity) => updateQuantity(item.id, quantity)}
+        updatePrice={(price) => updatePrice(item.id, price)}
+      />
+    ))}
 
-    <Button label="New Item" onClick={() => {
-      console.log(addItem);
-      addItem();
-    }} />
+    <Button label="New Item" onClick={() => createItem()} />
   </div>
 );
 

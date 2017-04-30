@@ -3,8 +3,8 @@
  */
 
 // blurgh. Super verbose.... pity you can't really `const` an entire object...
-const ADD_ITEM = 'ADD_ITEM';
-const REMOVE_ITEM = 'REMOVE_ITEM';
+const CREATE_ITEM = 'CREATE_ITEM';
+const DELETE_ITEM = 'DELETE_ITEM';
 const UPDATE_ITEM_NAME = 'UPDATE_ITEM_NAME';
 const UPDATE_ITEM_QUANTITY = 'UPDATE_ITEM_QUANTITY';
 const UPDATE_ITEM_PRICE = 'UPDATE_ITEM_PRICE';
@@ -16,19 +16,22 @@ let nextId = 1;
 // ------- Actions -------
 
 // we define the default content to be added here so that potentially this action could be re-used in creating
-// a new item with different default values
-function addItem (name = "", quantity = "", price = "") {
-  console.log('adding??');
-
+// a new item with different default values.
+function createItem (name = "", quantity = 1, price = 0) {
   return {
-    type: ADD_ITEM,
-    payload: { id: nextId++, name, quantity, price }
+    type: CREATE_ITEM,
+    payload: {
+      id: nextId++,
+      name,
+      quantity,
+      price
+    }
   };
 }
 
-function removeItem (id) {
+function deleteItem (id) {
   return {
-    type: REMOVE_ITEM,
+    type: DELETE_ITEM,
     payload: id
   };
 }
@@ -55,8 +58,8 @@ function updatePrice (id, price) {
 }
 
 export const actions = {
-  addItem,
-  removeItem,
+  createItem,
+  deleteItem,
   updateItemName,
   updateQuantity,
   updatePrice
@@ -68,7 +71,7 @@ export const actions = {
 // convenient shorthand for doing away with a `switch` in our reducer. This tracks all the action types we're interested
 // in, and returns a new array for the store
 const ACTION_HANDLERS = {
-  [ADD_ITEM]: (state, newItem) => [...state, newItem]
+  [CREATE_ITEM]: (state, newItem) => [...state, newItem]
 };
 
 export default function itemReducer (state = [], action) {

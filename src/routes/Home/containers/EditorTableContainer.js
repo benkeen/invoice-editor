@@ -8,9 +8,13 @@ import EditorTable from '../components/EditorTable';
 
 
 const mapDispatchToProps = {
-  addItem: actions.addItem,
-  removeItem: actions.removeItem
+  createItem: actions.createItem,
+  removeItem: actions.removeItem,
+  updateItemName: actions.updateItemName,
+  updateQuantity: actions.updateQuantity,
+  updatePrice: actions.updatePrice
 };
+
 
 // modifies the data in the store (the one source of truth!) to include a `total` property. The rendering layer handles
 // formatting of the value

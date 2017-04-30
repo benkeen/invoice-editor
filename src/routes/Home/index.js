@@ -6,12 +6,17 @@ import React from 'react';
 import EditorTable from './containers/EditorTableContainer';
 import InvoiceSummary from './containers/InvoiceSummaryContainer';
 
-const Home = ({ items, addItem, removeItem }) => (
+
+const Home = (props) => (
   <div className="container-fluid">
+
     <EditorTable
-      items={items}
-      addItem={addItem}
-      removeItem={removeItem} />
+      items={props.items}
+      createItem={props.createItem}
+      deleteItem={props.deleteItem}
+      updateItemName={props.updateItemName}
+      updateQuantity={props.updateQuantity}
+      updatePrice={props.updatePrice} />
 
     <InvoiceSummary />
   </div>

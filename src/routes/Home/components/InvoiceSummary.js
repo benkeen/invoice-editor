@@ -1,10 +1,9 @@
 import React from 'react';
-import CurrencyField from '../../../components/CurrencyField';
 
-export const HomeView = () => (
+export const InvoiceSummary = () => (
   <div>
-    Home component (HomeView) here.
+    Invoice summary here.
   </div>
 );
 
-export default HomeView;
+export default InvoiceSummary;
