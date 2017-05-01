@@ -12,6 +12,8 @@ showing misc dynamically updated content like the cost of each item and subtotal
 ### Notes
 
 - I use the [react-number-format](https://github.com/s-yadav/react-number-format) react component for the currency 
-fields. The UX feels a bit iffy to me when specifying formatting with cents, but I left it in anyway.
+fields. The UX feels a bit iffy to me when specifying formatting with cents (as here), but I left it in anyway.
 - I included [styled-components](https://github.com/styled-components/styled-components) for individual component
 styling.
+- I used [reselect](https://github.com/reactjs/reselect) to efficiently compute derived data (subtotal, tax, total) 
+from the normalized Redux store. 

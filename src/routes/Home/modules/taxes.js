@@ -3,6 +3,7 @@
  * putting a blank reducer here that always returns the default tax (0.05) is kinda reasonable.
  */
 
-export default function taxReducer (state = 0.05, action) {
+export default function taxPercentReducer (state = 5, action) {
   return state;
 }
+

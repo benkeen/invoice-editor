@@ -9,7 +9,7 @@ import InvoiceSummary from './containers/InvoiceSummaryContainer';
 
 const SummaryWrapper = styled.div`
   float: right; 
-  width: 180px;
+  width: 200px;
 `;
 
 const Home = (props) => (

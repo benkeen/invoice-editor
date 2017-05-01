@@ -9,7 +9,7 @@ const SummarySection = styled.div`
   padding: 6px;
 `;
 
-export const InvoiceSummary = ({ subtotal, taxes, tax, total }) => (
+export const InvoiceSummary = ({ subtotal, taxes, taxPercent, total }) => (
   <SummarySection>
     <div className="row">
       <div className="col-md-7">Subtotal:</div>
@@ -18,7 +18,7 @@ export const InvoiceSummary = ({ subtotal, taxes, tax, total }) => (
       </div>
     </div>
     <div className="row">
-      <div className="col-md-7">Tax ({tax * 100}%):</div>
+      <div className="col-md-7">Tax ({taxPercent}%):</div>
       <div className="col-md-5">
         <CurrencyField value={taxes} isEditable={false} />
       </div>

@@ -1,10 +1,10 @@
 /**
- * The container component for the Editor Table. This connects the necessary dispatch methods plus the
- * necessary store data to the InvoiceTable component.
+ * The container component for the Editor Table.
  */
 import { connect } from 'react-redux';
 import { actions } from '../modules/items';
 import InvoiceTable from '../components/InvoiceTable';
+import { itemTotalSelector } from '../modules/summary';
 
 
 const mapDispatchToProps = {
@@ -15,17 +15,8 @@ const mapDispatchToProps = {
   updatePrice: actions.updatePrice
 };
 
-
-// modifies the data in the store (the one source of truth!) to include a `total` property. The rendering layer handles
-// formatting of the value
-export const addItemTotal = (items) => {
-  return items.map((item) => {
-    return { ...item, total: item.quantity * item.price }
-  });
-};
-
 const mapStateToProps = (state) => ({
-  items: addItemTotal(state.items)
+  items: itemTotalSelector(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InvoiceTable);

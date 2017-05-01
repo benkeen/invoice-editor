@@ -90,7 +90,14 @@ const ACTION_HANDLERS = {
   [UPDATE_ITEM_PRICE]: (state, { id, price }) => updateProp(state, id, 'price', parseFloat(price))
 };
 
-export default function itemReducer (state = [], action) {
+const DEFAULT_ROW = {
+  id: nextId++,
+  name: '',
+  quantity: 1,
+  price: 0
+};
+
+export default function itemReducer (state = [DEFAULT_ROW], action) {
   const handler = ACTION_HANDLERS[action.type];
   return handler ? handler(state, action.payload) : state;
 }
