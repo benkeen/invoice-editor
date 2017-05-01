@@ -17,3 +17,5 @@ fields. The UX feels a bit iffy to me when specifying formatting with cents (as 
 styling.
 - I used [reselect](https://github.com/reactjs/reselect) to efficiently compute derived data (subtotal, tax, total) 
 from the normalized Redux store. 
+- One of the various dependencies hasn't been updated for the prop-types change, so you'll see a warning thrown in the 
+browser.
