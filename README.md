@@ -9,6 +9,11 @@ showing misc dynamically updated content like the cost of each item and subtotal
 - run `yarn install` or `npm install`
 - run `npm start` to start 'er up, and load up http://localhost:3000 in a web browser.
 
+### Tests
+
+- run `npm test`. The tests are very thin! I only added some for the `items` reducer, and not full code coverage. 
+Enough to show. :)
+
 ### Notes
 
 - I use the [react-number-format](https://github.com/s-yadav/react-number-format) react component for the currency 
@@ -19,3 +24,4 @@ styling.
 from the normalized Redux store. 
 - One of the various dependencies hasn't been updated for the prop-types change, so you'll see a warning thrown in the 
 browser.
+- I was going to make it responsive but it took a little longer than thought, so it's only for desktop-sized screens.

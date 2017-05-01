@@ -2,15 +2,20 @@
  * Contains actions, action types and the reducer for the invoice table items.
  */
 
-// blurgh. Super verbose.... pity you can't really `const` an entire object...
-const CREATE_ITEM = 'CREATE_ITEM';
-const DELETE_ITEM = 'DELETE_ITEM';
-const UPDATE_ITEM_NAME = 'UPDATE_ITEM_NAME';
-const UPDATE_ITEM_QUANTITY = 'UPDATE_ITEM_QUANTITY';
-const UPDATE_ITEM_PRICE = 'UPDATE_ITEM_PRICE';
+// (exported to allow testing)
+export const CREATE_ITEM = 'CREATE_ITEM';
+export const DELETE_ITEM = 'DELETE_ITEM';
+export const UPDATE_ITEM_NAME = 'UPDATE_ITEM_NAME';
+export const UPDATE_ITEM_QUANTITY = 'UPDATE_ITEM_QUANTITY';
+export const UPDATE_ITEM_PRICE = 'UPDATE_ITEM_PRICE';
 
-// provides a convenient unique key to each item in the invoice
-let nextId = 1;
+// provides a convenient unique key to each item in the invoice list
+let nextId = 0;
+
+// used for testing purposes
+export const resetNextId = () => {
+  nextId = 0;
+};
 
 
 // ------- Actions -------
@@ -83,21 +88,25 @@ const updateProp = (list, id, propName, newValue) => {
 // in, and returns a new array for the store. Truth is, this chunk is a bit too "clever". I wrote it like this to show
 // off my es6 skillz - in a real app, I'd lean towards less terse but more readable code.
 const ACTION_HANDLERS = {
-  [CREATE_ITEM]: (state, newItem) => [...state, newItem],
+  [CREATE_ITEM]: (state, newItem) => {
+    let copy = Object.assign({}, newItem);
+    copy.id = nextId++;
+    return [...state, copy];
+  },
   [DELETE_ITEM]: (state, id) => state.filter((item) => item.id !== id), // state.filter returns a NEW array, omitting the target item
   [UPDATE_ITEM_NAME]: (state, { id, itemName }) => updateProp(state, id, 'name', itemName),
   [UPDATE_ITEM_QUANTITY]: (state, { id, quantity }) => updateProp(state, id, 'quantity', parseInt(quantity, 10)),
   [UPDATE_ITEM_PRICE]: (state, { id, price }) => updateProp(state, id, 'price', parseFloat(price))
 };
 
-const DEFAULT_ROW = {
+export const DEFAULT_ITEM = {
   id: nextId++,
   name: '',
   quantity: 1,
   price: 0
 };
 
-export default function itemReducer (state = [DEFAULT_ROW], action) {
+export default function itemReducer (state = [DEFAULT_ITEM], action) {
   const handler = ACTION_HANDLERS[action.type];
   return handler ? handler(state, action.payload) : state;
-}
+};
