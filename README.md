@@ -3,6 +3,8 @@
 Sample application written in React, Redux, ES7 to allow a user to add/delete/edit arbitrary items in an invoice form,
 showing misc dynamically updated content like the cost of each item and subtotal/grand total.
 
+<img src="http://www.benjaminkeen.com/wp-content/uploads/2017/04/invoice-editor.png" border="1" />
+
 ### How to run
 
 - Clone the repo!
